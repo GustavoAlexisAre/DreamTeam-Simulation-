@@ -10,7 +10,7 @@ const ligaSchema = new Schema(
       trim:true
     },
     
-    Region:[{type: Schema.Types.ObjectId, ref:"Pais"}],
+    region:[{type: Schema.Types.ObjectId, ref:"Pais"}],
 
     equipos: [{type:Schema.Types.ObjectId, ref:"Equipo", required: true}]
 });

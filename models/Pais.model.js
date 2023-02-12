@@ -9,7 +9,10 @@ const paisSchema = new Schema(
       required:true,
       trim:true
     },
-    region:[{type: Schema.Types.ObjectId, ref:"Pais"}],
+    region:{
+     type:Boolean,
+     enum:['Asia', 'América', 'África', 'Europa',  'Oceanía']
+    },
   })
 
 const Pais = model("Pais", paisSchema);
