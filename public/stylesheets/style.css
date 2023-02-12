@@ -1,12 +1,95 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #EBF2FA;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #064789;
+  color: #FFFFFF;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header nav {
+  display: flex;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav li {
+  margin-right: 20px;
+}
+
+header nav a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+main h2 {
+  color: #064789;
+  margin-top: 40px;
+}
+
+main p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #427AA1;
+  margin-bottom: 40px;
+}
+
+main a {
+  color: #679436;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #064789;
+  color: #FFFFFF;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+button {
+  background-color: #A5BE00;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #679436;
+  color: white;
 }
 
 a {
-  color: #00b7ff;
-}
-
-h1 {
-  color: 15px;
+  text-decoration: none;
+  color: #064789;
 }
