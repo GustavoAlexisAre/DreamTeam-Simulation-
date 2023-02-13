@@ -23,10 +23,10 @@ router.get("/signup", isLoggedOut, (req, res) => {
 
 // POST /auth/signup
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, email, password, nombre, genero, nacionalidad, role } = req.body;
+  const { username, email, password, nombre, genero, nacionalidad} = req.body;
 
   // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === ""|| nombre === ""|| genero === ""|| nacionalidad === ""|| role === "") {
+  if (username === "" || email === "" || password === ""|| nombre === ""|| genero === ""|| nacionalidad === "") {
     res.status(400).render("auth/signup", {
       errorMessage:
         "All fields are mandatory. Please provide your username, email and password.",
@@ -66,18 +66,7 @@ let opcionesFoto = {
 
 let foto = opcionesFoto[genero]
 
-document.addEventListener("DOMContentLoaded", () => {
-  const selectPais = document.querySelector("#paisSelector", () => {
-    fetch("https://restcountries.com/v3.1/all")
-    .then((req, res) => { return res.json()
-    .then(data => {
-      let paisNombre =""
-      data.forEach(pais => paisNombre+= `<option>${pais.name}</option>` )})
-    })
-    selectPais.innerHTML = paisNombre
-  })
 
-})
 
 
   bcrypt
@@ -85,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((salt) => bcrypt.hash(password, salt))
     .then((hashedPassword) => {
       // Create a user and save it in the database
-      return User.create({ username, email, password: hashedPassword, nombre, genero, nacionalidad, foto, role });
+      return User.create({ username, email, password: hashedPassword, nombre, genero, nacionalidad, foto});
     })
     .then((user) => {
       res.redirect("/auth/login");
@@ -111,10 +100,10 @@ router.get("/login", isLoggedOut, (req, res) => {
 
 // POST /auth/login
 router.post("/login", isLoggedOut, (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { email, password } = req.body;
 
   // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === "") {
+  if (email === "" || password === "") {
     res.status(400).render("auth/login", {
       errorMessage:
         "All fields are mandatory. Please provide username, email and password.",

@@ -2,17 +2,34 @@
   <h2>Sign Up</h2>
   <form action="/auth/signup" method="POST">
 
+   <label> Nombre
+      <input type="text" name="nombre" placeholder="Escribe tu Nombre" />
+    </label>
+
     <label> Username
-      <input type="text" name="username" placeholder="Your username" />
+      <input type="text" name="username" placeholder="Escribe tu Usuario" />
     </label>
 
     <label> Email
-      <input type="email" name="email" placeholder="Your email" />
+      <input type="email" name="email" placeholder="Escribe tu E-mail" />
     </label>
 
     <label> Password
-      <input type="password" name="password" placeholder="Your password" />
+      <input type="password" name="password" placeholder="Escribe tu Contraseña" />
     </label>
+
+    <div>
+      <select id="paisSelector" name="nacionalidad"></select>
+    </div>
+
+    <div>
+      <select name="genero" aria-placeholder="Selecciona tu Genero">
+        <option value="mujer">Mujer</option>
+        <option value="hombre">Hombre</option>
+        <option value="otro">Otro</option>                          
+      </select>
+    </div>
+
 
     <button type="submit">Sign Up</button>
 
@@ -20,5 +37,9 @@
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
+  
   </form>
+   
 </div>
+
+<script src="/js/paises.js"></script>

@@ -12,12 +12,12 @@ const equipoSchema = new Schema(
     
     nacionalidad:{
       type:String,
-      require:true
+      required:true
     },
 
     ligas: [{type:Schema.Types.ObjectId, ref:"Liga", required: true}]
 });
 
-const Equipo = model("Liga", equipoSchema);
+const Equipo = model("Equipo", equipoSchema);
 
 module.exports = Equipo;

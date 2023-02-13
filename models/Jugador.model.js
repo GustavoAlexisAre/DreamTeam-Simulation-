@@ -11,12 +11,12 @@ const jugadorSchema = new Schema(
       posicion:{
         type:String,
         enum:["Delantero","Medio","Defensa","Portero"],
-        require:true
+        required:true
       },
 
       nacionalidad:{
         type:String,
-        require:true
+        required:true
       },
       
       ligas: [{type:Schema.Types.ObjectId, ref:"Liga", required: true}],
@@ -27,22 +27,14 @@ const jugadorSchema = new Schema(
         type:String,
         default:"",
       },
-      role:{
-        type:String,
-        enum:["Usuario","Admin"]
-      },
-      jugadores:[{type: Schema.Types.ObjectId, ref:"jugador"}],
 
       edad:{
-        type:String,
-        requiere:true
+        type:Date,
+        required:true
 
       },
       
-      titular:{
-        type:Boolean,
-        enum:["titular", "banca"]
-      }
+      titular:Boolean
     },
     {
       // this second object adds extra properties: `createdAt` and `updatedAt`

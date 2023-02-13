@@ -11,11 +11,11 @@ const userSchema = new Schema(
     },
     genero:{
       type:String,
-      enum:["Hombre","Mujer","Otro"]
+      enum:["hombre","mujer","otro"]
     },
     nacionalidad:{
       type:String,
-      require:true
+      required:true
     },
 
     username: {
@@ -41,8 +41,7 @@ const userSchema = new Schema(
     },
 
     foto:{
-      type:String,
-      default:"",
+      type:String
     },
     role:{
       type:String,
@@ -51,10 +50,6 @@ const userSchema = new Schema(
     },
     jugadores:[{type: Schema.Types.ObjectId, ref:"Jugador"}],
 
-    titular:{
-      type:Boolean,
-      enum:["Titular", "Banca"]
-    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
