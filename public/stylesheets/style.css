@@ -1,5 +1,7 @@
 body {
-  background-color: #EBF2FA;
+  background-image: url(/images/back1.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -16,6 +18,7 @@ header {
 
 header h1 {
   margin: 0;
+  font-family: 'Wallpoet', cursive;
 }
 
 header nav {
@@ -30,46 +33,55 @@ header nav ul {
 }
 
 header nav li {
+  color: #FFFFFF;
   margin-right: 20px;
+  font-family: 'Wallpoet', cursive;
 }
 
 header nav a {
   color: #FFFFFF;
   text-decoration: none;
+  font-family: 'Tourney', cursive;
 }
 
 main {
-  max-width: 800px;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 20px;
 }
 
 main h2 {
-  color: #064789;
+  color: #FFFFFF;
   margin-top: 40px;
+  font-family: 'Wallpoet', cursive;
 }
 
 main p {
   font-size: 16px;
   line-height: 1.5;
-  color: #427AA1;
+  color: #FFFFFF;
   margin-bottom: 40px;
+  font-family: 'Tourney', cursive;
+  margin-right: 1000px;
 }
 
 main a {
-  color: #679436;
+  color: #FFFFFF;
   text-decoration: none;
+  font-family: 'Tourney', cursive;
 }
 
 footer {
   background-color: #064789;
   color: #FFFFFF;
-  padding: 20px;
+  padding: 0px;
   text-align: center;
 }
 
 footer p {
   margin: 0;
+  font-family: 'Wallpoet', cursive;
+  color: #FFFFFF;
 }
 
 button {
@@ -91,5 +103,27 @@ button:hover {
 
 a {
   text-decoration: none;
-  color: #064789;
+  color: #FFFFFF;
 }
+
+#imgDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 1000px;
+  
+}
+
+.images{  
+  background-color: #FFFFFF;
+  width: 100px;
+  height: 100px;
+  margin: 2px 0;
+  border-radius: 25%;
+  }
+
+#ol{
+    font-family: 'Tourney', cursive;
+    color: #FFFFFF;
+  }
