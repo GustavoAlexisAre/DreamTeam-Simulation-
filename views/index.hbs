@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Dream Team</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
@@ -16,11 +16,23 @@
     <header>
       <h1>Dream Team</h1>
       <nav>
+        {{#unless userInSession}}
         <button type="button">
           <a href="/auth/login">Iniciar Sesion</a>
         </button>
         <button type="button">
           <a href="/auth/signup">Registrate</a>
+        </button>
+        {{/unless}}
+
+        {{#if userInSession}}
+         <button type="button">
+              <a href="/auth/userProfile">Profile</a>
+            </button>
+            <button type="button">
+              <a href="/auth/logout">Desconectarse</a>
+            </button>
+          {{/if}}
       </nav>
     </header>
     <main>
