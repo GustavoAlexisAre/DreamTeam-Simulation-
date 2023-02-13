@@ -14,7 +14,10 @@ const jugadorSchema = new Schema(
         require:true
       },
 
-      nacionalidad:[{type: Schema.Types.ObjectId, ref:"Pais", required:true}],
+      nacionalidad:{
+        type:String,
+        require:true
+      },
       
       ligas: [{type:Schema.Types.ObjectId, ref:"Liga", required: true}],
 

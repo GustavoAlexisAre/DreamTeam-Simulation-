@@ -66,6 +66,19 @@ let opcionesFoto = {
 
 let foto = opcionesFoto[genero]
 
+document.addEventListener("DOMContentLoaded", () => {
+  const selectPais = document.querySelector("#paisSelector", () => {
+    fetch("https://restcountries.com/v3.1/all")
+    .then((req, res) => { return res.json()
+    .then(data => {
+      let paisNombre =""
+      data.forEach(pais => paisNombre+= `<option>${pais.name}</option>` )})
+    })
+    selectPais.innerHTML = paisNombre
+  })
+
+})
+
 
   bcrypt
     .genSalt(saltRounds)

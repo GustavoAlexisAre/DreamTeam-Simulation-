@@ -13,7 +13,10 @@ const userSchema = new Schema(
       type:String,
       enum:["Hombre","Mujer","Otro"]
     },
-    nacionalidad:[{type: Schema.Types.ObjectId, ref:"Pais"}],
+    nacionalidad:{
+      type:String,
+      require:true
+    },
 
     username: {
       type: String,
