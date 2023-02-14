@@ -19,18 +19,29 @@
          
          <form id="loginForm" action="/auth/login" method="POST">
   <div>
+    {{#unless userInSession}}
     <label> 
-      <input id="emailInputIndex" type="email" name="email" placeholder="Your email" />
+      <input id="emailInputIndex" type="email" name="email" placeholder="Ingresa tu email" required/>
     </label>
 
     <label> 
-      <input type="password" name="password" placeholder="Your password" />
+      <input type="password" name="password" placeholder="*********" required/>
     </label>
-
+    
     <button class="navButtons" type="submit">Ingresar</button>
   <button type="submit">
           <a href="/auth/signup" class="navButtons">Registrarse</a>
-        </button>
+  </button>
+   {{/unless}}
+
+   {{#if userInSession}}
+    <button  class="navButtons" type="submit">
+              <a href="/auth/userProfile">Profile</a>
+     </button>
+    <button  class="navButtons" type="submit">
+              <a href="/auth/logout">Desconectarse</a>
+     </button>
+   {{/if}}
 </div>
 
     {{#if errorMessage}}
