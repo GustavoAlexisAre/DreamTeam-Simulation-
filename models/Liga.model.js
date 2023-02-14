@@ -10,9 +10,19 @@ const ligaSchema = new Schema(
       trim:true
     },
     
-    nacionalidad:{
+    temporada:{
       type:String,
-      require:true
+      required:true
+    },
+
+    ronda:{
+      type:String,
+      required:true
+    },
+
+    logo:{
+      type:String,
+      required:true
     },
     
     equipos: [{type:Schema.Types.ObjectId, ref:"Equipo", required: true}]

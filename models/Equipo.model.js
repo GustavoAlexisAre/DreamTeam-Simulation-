@@ -4,18 +4,40 @@ const { Schema, model } = require("mongoose");
 const equipoSchema = new Schema(
   {
 
-    nombre:{
+    home:{
       type:String,
       required:true,
       trim:true
     },
     
-    nacionalidad:{
+    away:{
       type:String,
       required:true
     },
 
-    ligas: [{type:Schema.Types.ObjectId, ref:"Liga", required: true}]
+    homeScore:{
+      type:String,
+      required:true,
+      trim:true
+    },
+
+    awayScore:{
+      type:String,
+      required:true,
+      trim:true
+    },
+
+    homeLogo:{
+      type:String,
+      required:true,
+      trim:true
+    },
+
+    awayLogo:{
+      type:String,
+      required:true,
+      trim:true
+    }
 });
 
 const Equipo = model("Equipo", equipoSchema);

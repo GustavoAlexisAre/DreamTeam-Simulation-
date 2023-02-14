@@ -77,7 +77,7 @@ let foto = opcionesFoto[genero]
       return User.create({ username, email, password: hashedPassword, nombre, genero, nacionalidad, foto});
     })
     .then((user) => {
-      res.redirect("/auth/login");
+      res.redirect("/user/userProfile");
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
@@ -95,7 +95,7 @@ let foto = opcionesFoto[genero]
 
 // GET /auth/login
 router.get("/login", isLoggedOut, (req, res) => {
-  res.render("auth/login");
+  res.render("user/userProfile");
 });
 
 // POST /auth/login
@@ -104,7 +104,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
   // Check that username, email, and password are provided
   if (email === "" || password === "") {
-    res.status(400).render("auth/login", {
+    res.status(400).render("index", {
       errorMessage:
         "All fields are mandatory. Please provide username, email and password.",
     });
@@ -115,7 +115,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   // Here we use the same logic as above
   // - either length based parameters or we check the strength of a password
   if (password.length < 6) {
-    return res.status(400).render("auth/login", {
+    return res.status(400).render("index", {
       errorMessage: "Your password needs to be at least 6 characters long.",
     });
   }
@@ -127,7 +127,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       if (!user) {
         res
           .status(400)
-          .render("auth/login", { errorMessage: "Wrong credentials." });
+          .render("index", { errorMessage: "Wrong credentials." });
         return;
       }
 
@@ -138,7 +138,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           if (!isSamePassword) {
             res
               .status(400)
-              .render("auth/login", { errorMessage: "Wrong credentials." });
+              .render("index", { errorMessage: "Wrong credentials." });
             return;
           }
 
@@ -146,17 +146,21 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           req.session.currentUser = user.toObject();
           // Remove the password field
           delete req.session.currentUser.password;
-
-          res.redirect("/auth/userProfile");
+          // if(user.role === "admin"){
+          //   res.redirect("/admin/dashboard");
+          //   }
+          //   else if(user.role === "user"){
+              res.redirect("/user/userProfile");
+            // }
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
     })
     .catch((err) => next(err));
 });
 
-router.get('/userProfile', isLoggedIn, (req, res) => res.render('user/user-profile',{ userInSession: req.session.currentUser }));
+// router.get('/userProfile', isLoggedIn, (req, res) => res.render('user/user-profile',{ userInSession: req.session.currentUser }));
 
-router.get('/userPrediction', isLoggedIn, (req, res) => res.render('user/user-prediction',{ userInSession: req.session.currentUser }));
+// router.get('/userPrediction', isLoggedIn, (req, res) => res.render('user/user-prediction',{ userInSession: req.session.currentUser }));
 
 // GET /auth/logout
 router.get("/logout", isLoggedIn, (req, res) => {
