@@ -16,6 +16,7 @@ header {
   align-items: center;
 }
 
+
 header h1 {
   margin: 0;
   font-family: 'Wallpoet', cursive;
@@ -23,6 +24,8 @@ header h1 {
 
 header nav {
   display: flex;
+  justify-content: space-between;
+
 }
 
 header nav ul {
@@ -85,15 +88,16 @@ footer p {
 }
 
 button {
-  background-color: #A5BE00;
-  border: none;
   padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  margin-right: 10px;
+  text-align: left;
+  
 }
 
 button:hover {
@@ -126,4 +130,114 @@ a {
 #ol{
     font-family: 'Tourney', cursive;
     color: #FFFFFF;
+  }
+  /*sing up and register*/ 
+
+  #form {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Tourney', cursive;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+    margin-top: 8%;
+    margin-right: 1300px;
+  }
+  
+  #form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  #form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  #form button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  #form button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  #form .error {
+    color: #f00;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  #logo1 {
+    height: 50px;
+  }
+  /*login form*/
+   #loginForm {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+  
+  label {
+    margin-right: 10px;
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  #emailInputIndex {
+    padding: 10px;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 150px;
+    margin-left: 1000px;
+  }
+
+  input[type="password"] {
+    padding: 10px;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 150px;
+  }
+  
+  
+
+
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Tourney', cursive;
+  }
+  
+  .error {
+    color: red;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
   }

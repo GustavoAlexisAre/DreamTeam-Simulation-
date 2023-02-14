@@ -2,35 +2,53 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Dream Team</title>
+    <title>KickScore</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tourney:wght@900&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@900&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1>Dream Team</h1>
+      
       <nav>
-        <button type="button">
-          <a href="/auth/login">Iniciar Sesion</a>
+        <img id="logo1" src="/images/logo.png" alt="logo" >
+         
+         <form id="loginForm" action="/auth/login" method="POST">
+  <div>
+    <label> 
+      <input id="emailInputIndex" type="email" name="email" placeholder="Your email" />
+    </label>
+
+    <label> 
+      <input type="password" name="password" placeholder="Your password" />
+    </label>
+
+    <button class="navButtons" type="submit">Ingresar</button>
+  <button type="submit">
+          <a href="/auth/signup" class="navButtons">Registrarse</a>
         </button>
-        <button type="button">
-          <a href="/auth/signup">Registrate</a>
+</div>
+
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+
+  </form>
+        
       </nav>
     </header>
     <main>
-      <section id="inicio">
-        <h2>Bienvenido a Dream Team</h2>
-        <p>Únete a una de nuestras ligas y compite con otros aficionados al fútbol para ver quién puede construir el mejor equipo. Elige sabiamente a tus jugadores y mantente al tanto de su rendimiento en partidos reales. ¡El gerente con más puntos al final de la temporada gana!</p>
+      <section id="welcome">
+        <h2>Bienvenido al KickScore</h2>
+        <p>Únete a una de nuestras ligas y compite con otros aficionados al fútbol para ver quién puede hacer las mejores predicciones. Elige sabiamente y mantente al día con las actuaciones reales de tus equipos y jugadores elegidos. ¡El manager con más puntos al final de la temporada gana!</p>
       </section>
-      <section id="ligas">
+      <section id="leagues">
         <h2>Ligas</h2>
-        <p>Escoge una de nuestras ligas:</p>
+        <p>Elige una de nuestras ligas:</p>
         <div id="imgDiv">
           <img class="images" src="/images/premierLeague3.webp" alt="premierLeague">
           <img class="images" src="/images/uefa.png" alt="uefa">
@@ -39,22 +57,22 @@
           <img class="images" src="/images/bundesliga.png" alt="bundesliga">
         </div>
       </section>
-      <section id="reglas">
+      <section id="rules">
         <h2>Reglas</h2>
-        <p>Estas son las reglas para nuestras ligas de Dream Team:</p>
+        <p>Estas son las reglas para nuestras ligas de KickScore:</p>
         <ol id="ol">
-          <li>Cada gerente selecciona un equipo de jugadores reales dentro de un tope salarial.</li>
-          <li>Se otorgan puntos basados en el rendimiento real de los jugadores en los partidos.</li>
-          <li>El gerente con más puntos al final de la temporada gana la liga.</li>
+          <li>Cada manager predice los resultados de partidos de fútbol reales dentro de un presupuesto.</li>
+          <li>Se otorgan puntos en función de la precisión de las predicciones.</li>
+          <li>El manager con más puntos al final de la temporada gana la liga.</li>
         </ol>
       </section>
-      <section id="contacto">
+      <section id="contact">
         <h2>Contacto</h2>
-        <p>Si tienes alguna pregunta, envíanos un correo electrónico a <a href="mailto:soporte@dreamteam.com">soporte@dreamteam.com</a>.</p>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2023 Dream Team</p>
-    </footer>
+        <p>Si tienes alguna pregunta, envíanos un correo electrónico a <a href="mailto:support@scorepredictor.com">support@scorepredictor.com</a>.</p>
+</section>
+</main>
+<footer>
+<p>© 2023 KickScore</p>
+</footer>
   </body>
 </html>

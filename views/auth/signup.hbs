@@ -1,12 +1,18 @@
+<header>
+      
+      <nav>
+     <img id="logo1" src="/images/logo.png" alt="logo" >
+      </nav>
+    </header>
 <div id="form">
-  <h2>Sign Up</h2>
+  <h2>Registrate</h2>
   <form action="/auth/signup" method="POST">
 
    <label> Nombre
       <input type="text" name="nombre" placeholder="Escribe tu Nombre" />
     </label>
 
-    <label> Username
+    <label> Usuario
       <input type="text" name="username" placeholder="Escribe tu Usuario" />
     </label>
 
@@ -14,7 +20,7 @@
       <input type="email" name="email" placeholder="Escribe tu E-mail" />
     </label>
 
-    <label> Password
+    <label> Contraseña
       <input type="password" name="password" placeholder="Escribe tu Contraseña" />
     </label>
 
@@ -31,7 +37,7 @@
     </div>
 
 
-    <button type="submit">Sign Up</button>
+    <button type="submit">Registrate</button>
 
 
     {{#if errorMessage}}
@@ -43,3 +49,4 @@
 </div>
 
 <script src="/js/paises.js"></script>
+<link rel="stylesheet" href="/stylesheets/style.css"
