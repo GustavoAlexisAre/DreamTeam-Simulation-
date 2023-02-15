@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const getFootballFixtures = require('../services/futbolApi.service');
+const {getFootballFixtures,getFootballFixturesById} = require('../services/futbolApi.service');
 const Predicciones = require("../models/Prediccion.model");
 
 
@@ -9,7 +9,7 @@ router.get('/userProfile',(req, res) => res.render('user/user-profile',{ userInS
 router.get('/userPrediction', (req, res) => {
     getFootballFixtures()
       .then(function(data) {
-        console.log(data)
+        // console.log(data)
         res.render('user/user-prediction',{ userInSession: req.session.currentUser, fixture: data })
         
       })
@@ -21,24 +21,24 @@ router.get('/userPrediction', (req, res) => {
 
 
 
-router.post("/userPrediction", (req, res) => {
+router.post("/user-prediction/:fixtureId", (req, res) => {
 
-  
+    const { fixtureId } = req.params;
     const {homeScore, awayScore} = req.body;
-    const {homeTeam, awayTeam, homeTeamLogo, awayTeamLogo, realHomeScore, realAwayScore, winnerTeam, lostTeam, League } =req.params
+    // const {homeTeam, awayTeam, homeTeamLogo, awayTeamLogo, realHomeScore, realAwayScore, winnerTeam, lostTeam, League } = req.params
     
-  
+    console.log({homeScore, awayScore})
     // Check that username, email, and password are provided
     if (homeScore === "" || awayScore === "" ) {
-      res.status(400).render("user/user-preidction", {
+      res.status(400).render("user/user-prediction", {
         errorMessage:
           "All fields are mandatory. Please provide your Scores",
       });
   
       return;
     }
-    if (homeScore.length < 3  && awayScore < 3) {
-        res.status(400).render("auth/signup", {
+    if (homeScore.length > 2  && awayScore.length > 2) {
+        res.status(400).render("user/user-prediction", {
           errorMessage: "Your Score needs to be at least 2 characters long.",
         });
         
@@ -46,6 +46,11 @@ router.post("/userPrediction", (req, res) => {
       }
       console.log(req.body)
 
+      getFootballFixturesById(fixtureId)
+      .then(datos => {
+        console.log({datos})
+      })
+      return 
       if(teams.home.winner === true){
         winnerTeam = teams.home.name
         lostTeam = teams.away.name

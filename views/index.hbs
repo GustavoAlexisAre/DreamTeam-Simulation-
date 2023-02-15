@@ -3,12 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <title>KickScore</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@900&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -19,6 +13,9 @@
          <form id="loginForm" action="/auth/login" method="POST">
   <div>
     {{#unless userInSession}}
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
     <label> 
       <input id="emailInputIndex" type="email" name="email" placeholder="Ingresa tu email" required/>
     </label>
@@ -36,20 +33,20 @@
    {{#if userInSession}}
    <div id="InSessionIndexButtons">
     <button  type="submit">
-              <a href="/user/userPrediction">Home</a>
+              <a href="/user/userPrediction">Inicio</a>
      </button>
     <button  type="submit">
-              <a href="/user/userProfile">Profile</a>
+              <a href="/user/userProfile">Perfil</a>
      </button>
     <button   type="submit">
               <a href="/auth/logout">Desconectarse</a>
      </button>
      </div>
+   
+   
    {{/if}}
-
-     {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
+    
+    
 
 </div>
 
@@ -59,7 +56,7 @@
     </header>
     <main>
       <section id="welcome">
-        <h2>Bienvenido al KickScore</h2>
+        <h2>Bienvenido a KickScore</h2>
         <p>Únete a una de nuestras ligas y compite con otros aficionados al fútbol para ver quién puede hacer las mejores predicciones. Elige sabiamente y mantente al día con las actuaciones reales de tus equipos y jugadores elegidos. ¡El manager con más puntos al final de la temporada gana!</p>
       </section>
       <section id="leagues">
