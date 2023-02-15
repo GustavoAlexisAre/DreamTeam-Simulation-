@@ -39,27 +39,29 @@ awayTeamLogo:{
 
 realHomeScore:{
   type:String,
-  required:true,
   trim:true
 
 },
 realAwayScore:{
 type:String,
-required:true,
 trim:true
 },
 winnerTeam:{
   type:String,
-  required:true,
   trim:true
 
 },
 lostTeam:{
   type:String,
-  required:true,
   trim:true
 },
 league:{
+  type:String,
+  required:true,
+  trim:true
+
+},
+date:{
   type:String,
   required:true,
   trim:true

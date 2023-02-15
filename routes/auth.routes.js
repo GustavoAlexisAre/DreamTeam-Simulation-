@@ -17,7 +17,7 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 // GET /auth/signup
-router.get("/signup", (req, res) => {
+router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
 
@@ -77,7 +77,7 @@ let foto = opcionesFoto[genero]
       return User.create({ username, email, password: hashedPassword, nombre, genero, nacionalidad, foto});
     })
     .then((user) => {
-      res.redirect("/user/userPrediction");
+      res.redirect("/");
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {

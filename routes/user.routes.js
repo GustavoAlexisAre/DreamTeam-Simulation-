@@ -27,7 +27,7 @@ router.post("/user-prediction/:fixtureId", (req, res) => {
     const {homeScore, awayScore} = req.body;
     // const {homeTeam, awayTeam, homeTeamLogo, awayTeamLogo, realHomeScore, realAwayScore, winnerTeam, lostTeam, League } = req.params
     
-    console.log({homeScore, awayScore})
+    // console.log({homeScore, awayScore})
     // Check that username, email, and password are provided
     if (homeScore === "" || awayScore === "" ) {
       res.status(400).render("user/user-prediction", {
@@ -44,26 +44,32 @@ router.post("/user-prediction/:fixtureId", (req, res) => {
         
         return
       }
-      console.log(req.body)
+     
 
       getFootballFixturesById(fixtureId)
       .then(datos => {
-        console.log({datos})
-      })
-      return 
-      if(teams.home.winner === true){
-        winnerTeam = teams.home.name
-        lostTeam = teams.away.name
-        return Predicciones.create({homeScore, awayScore, homeTeam, awayTeam, homeTeamLogo, awayTeamLogo, realHomeScore, realAwayScore, winnerTeam, lostTeam, League })
-      }
-      else if(teams.home.winner === false){
-        winnerTeam = teams.away.name
-        lostTeam = teams.team.name
-        return Predicciones.create({homeScore, awayScore, homeTeam, awayTeam, homeTeamLogo, awayTeamLogo, realHomeScore, realAwayScore, winnerTeam, lostTeam, League })
-      }
-      else{
-        return Predicciones.create({homeScore, awayScore, homeTeam, awayTeam, homeTeamLogo, awayTeamLogo, realHomeScore, realAwayScore, winnerTeam, lostTeam, League })
-      }
+            const prediction = datos.map(dato => {
+              return {
+                homeTeam: dato.teams.home.name,
+                awayTeam: dato.teams.away.name,
+                homeTeamLogo:  dato.teams.home.logo,
+                awayTeamLogo:  dato.teams.away.logo,
+                realHomeScore: dato.goals.home,
+                realAwayScore: dato.goals.away,
+                league: dato.league.name,
+                date: dato.league.season
+              }
+            })
+            const data = {homeScore, awayScore, ...prediction[0]}
+            console.log(data)
+          return Predicciones.create(data)
+          })
+          .then(() => {
+            res.redirect("/user/userPrediction")
+          })
+
+     
+      
 })
 
 // router.get('/userPrediction', function(req, res) {
