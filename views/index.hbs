@@ -34,18 +34,21 @@
    {{/unless}}
 
    {{#if userInSession}}
-    <button  class="navButtons" type="submit">
+   <div id="InSessionIndexButtons">
+    <button  type="submit">
               <a href="/user/userProfile">Profile</a>
      </button>
-    <button  class="navButtons" type="submit">
+    <button   type="submit">
               <a href="/auth/logout">Desconectarse</a>
      </button>
+     </div>
    {{/if}}
-</div>
 
-    {{#if errorMessage}}
+     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
+
+</div>
 
   </form>
         
@@ -78,7 +81,7 @@
       </section>
       <section id="contact">
         <h2>Contacto</h2>
-        <p>Si tienes alguna pregunta, envíanos un correo electrónico a <a href="mailto:support@scorepredictor.com">support@scorepredictor.com</a>.</p>
+        <p>Si tienes alguna pregunta, envíanos un correo electrónico a <a href="mailto:support@kickscore.com">support@kickscore.com</a>.</p>
 </section>
 </main>
 <footer>

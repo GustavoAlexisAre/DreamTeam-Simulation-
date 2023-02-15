@@ -23,6 +23,17 @@
   <br><p>Still no logged in user, sorry!</p>
  
 {{/if}}
-    
+    <div>
+      {{#with userInSession}}
+      <h1>Perfil de Usuario</h1>
+    <p>Nombre: {{nombre}}</p>
+    <p>Nombre de usuario: {{username}}</p>
+    <p>Correo electrónico: {{email}}</p>
+    <p>Género: {{genero}}</p>
+    <p>Nacionalidad: {{nacionalidad}}</p>
+    <p>Rol: {{role}}</p>
+    <img src="{{foto}}" alt="Foto de perfil">
+    {{/with}}
+    </div>
 </body>
 </html>
