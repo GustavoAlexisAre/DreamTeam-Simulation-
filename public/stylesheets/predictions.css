@@ -1,0 +1,75 @@
+.fixture-box {
+    background-color: #064789;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    max-height: min-content;
+    margin: 20px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Tourney', cursive; color: white;
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+
+  
+
+  .fixture-box p:first-of-type {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .fixture-box p:nth-of-type(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .fixture-box img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin: 0 10px;
+  }
+
+  
+  .fixture-box p:last-of-type {
+    font-size: 16px;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Tourney', cursive;
+  }
+  
+  .NavpredictionButtons{
+    margin-left: 1100px;
+  }
+
+  h2{
+    text-align: center;
+    color: white;
+  }
+
+  .card{
+    padding: 25px;
+    margin-bottom: 15px;
+    border: 2px solid black;
+
+  }
+
+  .predictions{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }

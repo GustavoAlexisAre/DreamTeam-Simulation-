@@ -5,27 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/predictions.css">
+    <link rel="stylesheet" href="/stylesheets/user.css">
+
 </head>
 <body>
 
 {{#if userInSession}}
-
-  <h2>Tus Predicciones</h2>
-  
-   
-    <button type="button">
-              <a href="/user/userProfile">Profile</a>
+<header>
+ <nav>
+  <img id="logo1" src="/images/logo.png" alt="logo" >
+         
+  <div class="NavpredictionButtons">
+  <button type="submit"> 
+     <a href="/">Predicciones</a>
      </button>
-      <a href="/"><button>Rules</button></a>
+  
+    <button type="submit">
+              <a href="/user/userProfile">Perfil</a>
+     </button>
     <button type="button">
               <a href="/auth/logout">Desconectarse</a>
      </button>
-     {{#each fixture}}
-<p>{{fixture.date}} </p>
-<p><img src={{teams.home.logo}} alt="logo equipo"/>{{teams.home.name}} {{goals.home}}-{{goals.away}} {{teams.away.name}}<img src={{teams.away.logo}} alt="logo equipo"/></p>
-<p>Estadio:{{fixture.venue.name}}    Ciudad:{{fixture.venue.city}}    {{league.round}}</p> 
+     </div>
+</nav>
+</header>
 
+      <h2>Predicciones</h2>
+    <div class="predictions">
+     {{#each fixture}}
+     <div class="fixture-box">
+     <div class="fixture-p card">
+          <p>{{formatoFecha fixture.date}} </p>
+          <p><img src={{teams.home.logo}} alt="logo equipo"/>{{teams.home.name}} {{goals.home}}-{{goals.away}} {{teams.away.name}}<img src={{teams.away.logo}} alt="logo equipo"/></p>
+          <form action="/user/user-prediction" method="POST">
+
+            <label> Casa
+                <input type="text" name="homeScore" placeholder="0" />
+              </label>
+              <label> Visitante
+                <input type="text" name="awayScore" placeholder="0" />
+              </label>
+              <button type="submit">Registro</button>
+          </form>
+          <p>Estadio:{{fixture.venue.name}}    Ciudad:{{fixture.venue.city}}    {{league.round}}</p> 
+      </div>
+    </div>
     {{/each}}
+    </div> 
 
 {{else}}
   
