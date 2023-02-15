@@ -34,13 +34,14 @@
     <div class="profile-section">
       {{#with userInSession}}
       <h1>Perfil de Usuario</h1>
+    <img src="{{foto}}" alt="Foto de perfil">
     <p>Nombre: {{nombre}}</p>
     <p>Nombre de usuario: {{username}}</p>
     <p>Correo electrónico: {{email}}</p>
     <p>Género: {{genero}}</p>
     <p>Nacionalidad: {{nacionalidad}}</p>
     <p>Rol: {{role}}</p>
-    <img src="{{foto}}" alt="Foto de perfil">
+   
     {{/with}}
     </div>
 </body>

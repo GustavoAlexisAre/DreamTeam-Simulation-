@@ -59,8 +59,8 @@ router.post("/signup", isLoggedOut, (req, res) => {
   // Create a new user - start by hashing the password
 
 let opcionesFoto = {
-  hombre:"",
-  mujer:"",
+  hombre:"imghttps://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-03/64/footballer-soccer-aguero-argentina-mancity-512.png",
+  mujer:"https://cdn0.iconfinder.com/data/icons/female-sport-3/128/football-soccer-women-player-sporty-512.png",
   otro:""
 }
 

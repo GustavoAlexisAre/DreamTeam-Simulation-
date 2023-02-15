@@ -18,7 +18,7 @@
          
   <div class="NavpredictionButtons">
   <button type="submit"> 
-     <a href="/">Predicciones</a>
+     <a href="/">Inicio</a>
      </button>
   
     <button type="submit">
@@ -41,14 +41,18 @@
           <form action="/user/user-prediction/{{fixture.id}}" method="POST">
 
             <label> Casa
-                <input type="text" name="homeScore" placeholder="0" value="0"/>
+                <input class="inputText" type="text" name="homeScore" placeholder="0" />
               </label>
               <label> Visitante
-                <input type="text" name="awayScore" placeholder="0" value="1"/>
+                <input class="inputText" type="text" name="awayScore" placeholder="0" />
               </label>
+              <div>
               <button type="submit">Registro</button>
+              </div>
           </form>
-          <p>Estadio:{{fixture.venue.name}}    Ciudad:{{fixture.venue.city}}    {{league.round}}</p> 
+          <p>Estadio:{{fixture.venue.name}} </p>   
+          <p>Ciudad:{{fixture.venue.city}} </p>    
+          <p>{{league.round}}</p>
       </div>
     </div>
     {{/each}}
