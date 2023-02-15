@@ -77,7 +77,7 @@ let foto = opcionesFoto[genero]
       return User.create({ username, email, password: hashedPassword, nombre, genero, nacionalidad, foto});
     })
     .then((user) => {
-      res.redirect("/user/userProfile");
+      res.redirect("/user/userPrediction");
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
@@ -95,7 +95,7 @@ let foto = opcionesFoto[genero]
 
 // GET /auth/login
 router.get("/login", isLoggedOut, (req, res) => {
-  res.render("user/userProfile");
+  res.render("user/userPrediction");
 });
 
 // POST /auth/login
@@ -150,7 +150,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           //   res.redirect("/admin/dashboard");
           //   }
           //   else if(user.role === "user"){
-              res.redirect("/user/userProfile");
+              res.redirect("/user/userPrediction");
             // }
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.

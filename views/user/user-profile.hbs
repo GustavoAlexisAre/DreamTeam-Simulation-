@@ -11,10 +11,11 @@
 {{#if userInSession}}
   <h2>Bienvenido, {{ userInSession.username }}!</h2>
   
-    <a href="/"><button>Home</button></a>
+    
     <button type="button">
-              <a href="/user/userPrediction">Predicciones Activas</a>
+              <a href="/user/userPrediction">Home</a>
      </button>
+     <a href="/"><button>Rules</button></a>
     <button type="button">
               <a href="/auth/logout">Desconectarse</a>
      </button>
