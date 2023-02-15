@@ -2,15 +2,16 @@ const express = require('express');
 const router = express.Router();
 const getFootballFixtures = require('../services/futbolApi.service');
 const Predicciones = require("../models/Prediccion.model");
-const Equipos = require("../models/Equipo.model");
-const Ligas = require("../models/Liga.model");
+
 
 router.get('/userProfile',(req, res) => res.render('user/user-profile',{ userInSession: req.session.currentUser }));
 
 router.get('/userPrediction', (req, res) => {
     getFootballFixtures()
       .then(function(data) {
+        console.log(data)
         res.render('user/user-prediction',{ userInSession: req.session.currentUser, fixture: data })
+        
       })
       .catch(function(error) {
         console.error(error);
@@ -18,8 +19,14 @@ router.get('/userPrediction', (req, res) => {
       });
 });
 
+
+
 router.post("/userPrediction", (req, res) => {
-    const {homeScore, awayScore } = req.body;
+
+  
+    const {homeScore, awayScore} = req.body;
+    const {homeTeam, awayTeam, homeTeamLogo, awayTeamLogo, realHomeScore, realAwayScore, winnerTeam, lostTeam, League } =req.params
+    
   
     // Check that username, email, and password are provided
     if (homeScore === "" || awayScore === "" ) {
@@ -38,7 +45,20 @@ router.post("/userPrediction", (req, res) => {
         return
       }
       console.log(req.body)
-      return Predicciones.create({homeScore, awayScore})
+
+      if(teams.home.winner === true){
+        winnerTeam = teams.home.name
+        lostTeam = teams.away.name
+        return Predicciones.create({homeScore, awayScore, homeTeam, awayTeam, homeTeamLogo, awayTeamLogo, realHomeScore, realAwayScore, winnerTeam, lostTeam, League })
+      }
+      else if(teams.home.winner === false){
+        winnerTeam = teams.away.name
+        lostTeam = teams.team.name
+        return Predicciones.create({homeScore, awayScore, homeTeam, awayTeam, homeTeamLogo, awayTeamLogo, realHomeScore, realAwayScore, winnerTeam, lostTeam, League })
+      }
+      else{
+        return Predicciones.create({homeScore, awayScore, homeTeam, awayTeam, homeTeamLogo, awayTeamLogo, realHomeScore, realAwayScore, winnerTeam, lostTeam, League })
+      }
 })
 
 // router.get('/userPrediction', function(req, res) {
