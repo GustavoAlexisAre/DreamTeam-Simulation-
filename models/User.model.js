@@ -48,7 +48,7 @@ const userSchema = new Schema(
       enum:["Usuario","Admin"],
       default:"Usuario"
     },
-    jugadores:[{type: Schema.Types.ObjectId, ref:"Jugador"}],
+    Predicciones:[{type: Schema.Types.ObjectId, ref:"Prediccion"}],
 
   },
   {

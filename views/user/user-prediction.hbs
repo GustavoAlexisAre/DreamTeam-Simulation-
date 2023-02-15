@@ -9,6 +9,7 @@
 <body>
 
 {{#if userInSession}}
+
   <h2>Tus Predicciones</h2>
   
     <a href="/"><button>Home</button></a>
@@ -18,6 +19,13 @@
     <button type="button">
               <a href="/auth/logout">Desconectarse</a>
      </button>
+     {{#each fixture}}
+<p>{{fixture.date}} </p>
+<p><img src={{teams.home.logo}} alt="logo equipo"/>{{teams.home.name}} {{goals.home}}-{{goals.away}} {{teams.away.name}}<img src={{teams.away.logo}} alt="logo equipo"/></p>
+<p>Estadio:{{fixture.venue.name}}    Ciudad:{{fixture.venue.city}}</p>
+
+    {{/each}}
+
 {{else}}
   
   <br><p>Still no logged in user, sorry!</p>

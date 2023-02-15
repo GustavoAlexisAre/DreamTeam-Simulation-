@@ -13,7 +13,10 @@ module.exports = function getFootballFixtures() {
 
   return axios.request(options)
     .then(function (response) {
-      return response.data;
+      const arreglo = response.data.response.map(element => {
+        return element
+      });
+      return arreglo
     })
     .catch(function (error) {
       console.error(error);

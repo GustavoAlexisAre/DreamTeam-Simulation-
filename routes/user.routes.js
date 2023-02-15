@@ -8,10 +8,9 @@ const Ligas = require("../models/Liga.model");
 router.get('/userProfile',(req, res) => res.render('user/user-profile',{ userInSession: req.session.currentUser }));
 
 router.get('/userPrediction', (req, res) => {
-    res.render('user/user-prediction',{ userInSession: req.session.currentUser })
     getFootballFixtures()
       .then(function(data) {
-        return data
+        res.render('user/user-prediction',{ userInSession: req.session.currentUser, fixture: data })
       })
       .catch(function(error) {
         console.error(error);
