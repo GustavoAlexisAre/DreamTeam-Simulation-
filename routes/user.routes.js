@@ -5,7 +5,12 @@ const Predicciones = require("../models/Prediccion.model");
 const User = require("../models/User.model");
 
 
-router.get('/userProfile',(req, res) => res.render('user/user-profile',{ userInSession: req.session.currentUser }));
+router.get('/userProfile',(req, res) => {
+  Predicciones.findById(req.session.currentUser.Predicciones)
+  .then(predccionUser => {
+    console.log(predccionUser)
+    res.render('user/user-profile',{ userInSession: req.session.currentUser, prediccion: predccionUser })});})
+  
 
 router.get('/userPrediction', (req, res) => {
     getFootballFixtures()
