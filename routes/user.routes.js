@@ -6,10 +6,20 @@ const User = require("../models/User.model");
 
 
 router.get('/userProfile',(req, res) => {
-  Predicciones.findById(req.session.currentUser.Predicciones)
-  .then(predccionUser => {
-    console.log(predccionUser)
-    res.render('user/user-profile',{ userInSession: req.session.currentUser, prediccion: predccionUser })});})
+  User.findById(req.session.currentUser._id)
+  .populate("Predicciones")
+  .then(prediccionUser => {
+    // console.log(prediccionUser.Predicciones)
+    let dataprediccion
+    for(i=0; i<req.session.currentUser.Predicciones.length; i++){
+       dataprediccion+= prediccionUser.Predicciones[i]
+     }
+      console.log(dataprediccion)
+      return  res.render('user/user-profile',{ userInSession: req.session.currentUser, prediccion:dataprediccion})
+    })
+  })
+    
+   
   
 
 router.get('/userPrediction', (req, res) => {
