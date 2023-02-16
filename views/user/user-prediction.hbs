@@ -37,22 +37,26 @@
      <div class="fixture-box">
      <div class="fixture-p card">
           <p>{{formatoFecha fixture.date}} </p>
-          <p><img src={{teams.home.logo}} alt="logo equipo"/>{{teams.home.name}}{{goals.home}}-{{goals.away}}{{teams.away.name}}<img src={{teams.away.logo}} alt="logo equipo"/></p>
-          <form action="/user/user-prediction/{{fixture.id}}" method="POST">
+          <p><img src={{teams.home.logo}} alt="logo equipo"/>{{teams.home.name}} {{goals.home}}-{{goals.away}} {{teams.away.name}}<img src={{teams.away.logo}} alt="logo equipo"/></p>
+         
+          <form id="score-form" action="/user/user-prediction/{{fixture.id}}" method="POST">
 
             <label> Casa
-                <input class="inputText" type="text" name="homeScore" placeholder="0" />
+                <input id="homeScore" class="inputText" type="text" name="homeScore" placeholder="0" value="0" />
               </label>
               <label> Visitante
-                <input class="inputText" type="text" name="awayScore" placeholder="0" />
+                <input id="awayScore" class="inputText" type="text" name="awayScore" placeholder="0" value="0"/>
               </label>
-              <div>
-              <button type="submit">Registro</button>
-              </div>
-          </form>
+              
+          
           <p>Estadio:{{fixture.venue.name}} </p>   
           <p>Ciudad:{{fixture.venue.city}} </p>    
           <p>{{league.round}}</p>
+              <div>
+              <button  class="prediccionRegisterButton" type="submit">Registro</button>
+              </div>
+              
+        </form>
       </div>
     </div>
     {{/each}}

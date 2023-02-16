@@ -52,6 +52,7 @@
     cursor: pointer;
     font-family: 'Tourney', cursive;
     justify-content: center;
+    margin-top: 15px;
   }
   
   .NavpredictionButtons{

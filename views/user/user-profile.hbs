@@ -31,6 +31,7 @@
   <br><p>Still no logged in user, sorry!</p>
  
 {{/if}}
+<div class="profileGeneral">
     <div class="profile-section">
       {{#with userInSession}}
       <h1>Perfil de Usuario</h1>
@@ -41,17 +42,27 @@
     <p>Género: {{genero}}</p>
     <p>Nacionalidad: {{nacionalidad}}</p>
     <p>Rol: {{role}}</p>
-   
+    
     {{/with}}
+    <p>Puntos Acomulaods: {{puntos}}</p>
     </div>
+    
+   <div class="prediccionProfile">
+  <h1>Predicciones</h1>  
+<div class="prediccion card">
+  {{#each prediccion}}   
+<p style="display: flex; align-items: center; justify-content: center;">
+  <img src={{homeTeamLogo}} alt="logo equipo"/>
+  <span style="margin: 0 10px;">{{homeTeam}} {{homeScore}}-{{awayScore}} {{awayTeam}}</span>
+  <img src={{awayTeamLogo}} alt="logo equipo"/>
+  <p>{{league}}</p>
+     <p>Fecha Creacion: {{createdAt}}</p>
+  {{/each}}
+  </p>   
+ 
+</div>
+</div>
+ </div>
 
-    <div>
-        {{#each prediccion}}
-      <h1>Predicciones</h1>
-    <p>Prediccion: {{homeScore}} {{awayscore}}</p>
-
-   {{/each}}
-   
-    </div>
 </body>
 </html>

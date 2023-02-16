@@ -4,37 +4,33 @@ const {getFootballFixtures,getFootballFixturesById} = require('../services/futbo
 const Predicciones = require("../models/Prediccion.model");
 const User = require("../models/User.model");
 
-
 router.get('/userProfile',(req, res) => {
   User.findById(req.session.currentUser._id)
   .populate("Predicciones")
   .then(prediccionUser => {
-
     let puntosUser = 0 
-    if (awayScore === realAwayScore && homeScore === realAwayScore){
-      puntosUser += 6
-    }
-    else if (homeScore > awayScore && realHomeScore > realAwayScore){
-      puntosUser += 3
-    }
-    else if (homeScore < awayScore && realHomeScore < realAwayScore){
-      puntosUser += 3
-    }
-    else if (homeScore === awayScore && realHomeScore === realAwayScore){
-      puntosUser += 3
-    }
-
+    // if (awayScore === realAwayScore && homeScore === realAwayScore){
+    //   puntosUser += 6
+    // }
+    // else if (homeScore > awayScore && realHomeScore > realAwayScore){
+    //   puntosUser += 3
+    // }
+    // else if (homeScore < awayScore && realHomeScore < realAwayScore){
+    //   puntosUser += 3
+    // }
+    // else if (homeScore === awayScore && realHomeScore === realAwayScore){
+    //   puntosUser += 3
+    // }
+    
     return res.render('user/user-profile',{ 
       userInSession: req.session.currentUser, 
-      prediccion: prediccionUser.Predicciones,
+      prediccion: prediccionUser.Predicciones, 
       puntos: puntosUser
     });
   });
 });
-
-    
-   
   
+router.get('/userProfile',(req, res) => res.render('user/user-profile',{ userInSession: req.session.currentUser, dataPredicciones: req.session.currentUser.Predicciones }));
 
 router.get('/userPrediction', (req, res) => {
     getFootballFixtures()
@@ -94,6 +90,7 @@ router.post("/user-prediction/:fixtureId", (req, res) => {
             return User.findByIdAndUpdate(req.session.currentUser._id, { $push: { Predicciones: dbpost._id  } });})
           })
           .then(() => {
+            
             res.redirect("/user/userPrediction")
           })
 
