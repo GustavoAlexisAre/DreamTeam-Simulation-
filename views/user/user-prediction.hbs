@@ -37,7 +37,7 @@
      <div class="fixture-box">
      <div class="fixture-p card">
           <p>{{formatoFecha fixture.date}} </p>
-          <p><img src={{teams.home.logo}} alt="logo equipo"/>{{teams.home.name}} {{goals.home}}-{{goals.away}} {{teams.away.name}}<img src={{teams.away.logo}} alt="logo equipo"/></p>
+          <p><img src={{teams.home.logo}} alt="logo equipo"/>{{teams.home.name}}{{goals.home}}-{{goals.away}}{{teams.away.name}}<img src={{teams.away.logo}} alt="logo equipo"/></p>
           <form action="/user/user-prediction/{{fixture.id}}" method="POST">
 
             <label> Casa

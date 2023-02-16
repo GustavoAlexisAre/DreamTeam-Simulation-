@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {getFootballFixtures,getFootballFixturesById} = require('../services/futbolApi.service');
 const Predicciones = require("../models/Prediccion.model");
+const User = require("../models/User.model");
 
 
 router.get('/userProfile',(req, res) => res.render('user/user-profile',{ userInSession: req.session.currentUser }));
@@ -9,9 +10,7 @@ router.get('/userProfile',(req, res) => res.render('user/user-profile',{ userInS
 router.get('/userPrediction', (req, res) => {
     getFootballFixtures()
       .then(function(data) {
-        // console.log(data)
         res.render('user/user-prediction',{ userInSession: req.session.currentUser, fixture: data })
-        
       })
       .catch(function(error) {
         console.error(error);
@@ -25,10 +24,7 @@ router.post("/user-prediction/:fixtureId", (req, res) => {
 
     const { fixtureId } = req.params;
     const {homeScore, awayScore} = req.body;
-    // const {homeTeam, awayTeam, homeTeamLogo, awayTeamLogo, realHomeScore, realAwayScore, winnerTeam, lostTeam, League } = req.params
     
-    // console.log({homeScore, awayScore})
-    // Check that username, email, and password are provided
     if (homeScore === "" || awayScore === "" ) {
       res.status(400).render("user/user-prediction", {
         errorMessage:
@@ -61,26 +57,19 @@ router.post("/user-prediction/:fixtureId", (req, res) => {
               }
             })
             const data = {homeScore, awayScore, ...prediction[0]}
-            console.log(data)
-          return Predicciones.create(data)
+            // console.log(data)
+          Predicciones.create(data)
+          .then(dbpost =>  {
+            //  console.log(dbpost.homeScore)
+            // console.log(req.session.currentUser._id)
+            return User.findByIdAndUpdate(req.session.currentUser._id, { $push: { Predicciones: dbpost._id  } });})
           })
           .then(() => {
             res.redirect("/user/userPrediction")
           })
 
-     
       
 })
 
-// router.get('/userPrediction', function(req, res) {
-//     getFootballFixtures
-//       .then(function(data) {
-//         console.log(data)
-//       })
-//       .catch(function(error) {
-//         console.error(error);
-//         res.render('error', { error: error });
-//       });
-//   });
 
 module.exports = router
