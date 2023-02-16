@@ -30,7 +30,7 @@
   </button>
    {{/unless}}
 
-   {{#if userInSession}}
+   {{#if userInSession.role}}
    <div id="InSessionIndexButtons">
     <button  type="submit">
               <a href="/user/userPrediction">Predicciones</a>
@@ -41,10 +41,9 @@
     <button   type="submit">
               <a href="/auth/logout">Desconectarse</a>
      </button>
-     </div>
-   
-   
+
    {{/if}}
+   
     
     
 

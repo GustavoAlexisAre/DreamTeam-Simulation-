@@ -4,10 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
     <title>Document</title>
 </head>
 <body>
-    HOLA
-    <script src="/js/dashboard.js"></script>
+<header>
+{{#if userInSession}}
+  <nav>
+    <img id="logo1" src="/images/logo.png" alt="logo" >
+    <div id="profileNavButtons">
+    <a href="/"><button>Inicio</button></a>
+    <button type="button">
+              <a href="/admin/dashboard/userList">Listas de Usuarios</a>
+     </button>
+     
+    <button type="button">
+              <a href="/auth/logout">Desconectarse</a>
+     </button>
+     </div>
+  </nav>
+  </header>
+<h2>Bienvenido, {{ userInSession.username }}!</h2>
+{{else}}
+
+  
+  <br><p>Still no logged in user, sorry!</p>
+ 
+{{/if}}
+    <div class="profile-section">
+      {{#with userInSession}}
+      <h1>Perfil de Usuario</h1>
+    <img src="{{foto}}" alt="Foto de perfil">
+    <p>Nombre: {{nombre}}</p>
+    <p>Nombre de usuario: {{username}}</p>
+    <p>Correo electrónico: {{email}}</p>
+    <p>Género: {{genero}}</p>
+    <p>Nacionalidad: {{nacionalidad}}</p>
+    <p>Rol: {{role}}</p>
+   
+    {{/with}}
+    </div>
+
+    <div>
+        {{#each prediccion}}
+      <h1>Predicciones</h1>
+    <p>Prediccion: {{homeScore}} {{awayscore}}</p>
+
+   {{/each}}
+   
+    </div>
 </body>
 </html>
