@@ -9,15 +9,29 @@ router.get('/userProfile',(req, res) => {
   User.findById(req.session.currentUser._id)
   .populate("Predicciones")
   .then(prediccionUser => {
-    // console.log(prediccionUser.Predicciones)
-    let dataprediccion
-    for(i=0; i<req.session.currentUser.Predicciones.length; i++){
-       dataprediccion+= prediccionUser.Predicciones[i]
-     }
-      console.log(dataprediccion)
-      return  res.render('user/user-profile',{ userInSession: req.session.currentUser, prediccion:dataprediccion})
-    })
-  })
+
+    let puntosUser = 0 
+    if (awayScore === realAwayScore && homeScore === realAwayScore){
+      puntosUser += 6
+    }
+    else if (homeScore > awayScore && realHomeScore > realAwayScore){
+      puntosUser += 3
+    }
+    else if (homeScore < awayScore && realHomeScore < realAwayScore){
+      puntosUser += 3
+    }
+    else if (homeScore === awayScore && realHomeScore === realAwayScore){
+      puntosUser += 3
+    }
+
+    return res.render('user/user-profile',{ 
+      userInSession: req.session.currentUser, 
+      prediccion: prediccionUser.Predicciones,
+      puntos: puntosUser
+    });
+  });
+});
+
     
    
   
