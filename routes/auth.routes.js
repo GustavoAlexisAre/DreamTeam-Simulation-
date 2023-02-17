@@ -158,9 +158,6 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// router.get('/userProfile', isLoggedIn, (req, res) => res.render('user/user-profile',{ userInSession: req.session.currentUser }));
-
-// router.get('/userPrediction', isLoggedIn, (req, res) => res.render('user/user-prediction',{ userInSession: req.session.currentUser }));
 
 // GET /auth/logout
 router.get("/logout", isLoggedIn, (req, res) => {

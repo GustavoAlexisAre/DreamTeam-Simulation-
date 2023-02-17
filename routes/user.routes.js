@@ -88,11 +88,10 @@ router.post("/user-prediction/:fixtureId", (req, res) => {
               }
             })
             const data = {homeScore, awayScore, ...prediction[0]}
-            // console.log(data)
+           
           Predicciones.create(data)
           .then(dbpost =>  {
-            //  console.log(dbpost.homeScore)
-            // console.log(req.session.currentUser._id)
+          
             return User.findByIdAndUpdate(req.session.currentUser._id, { $push: { Predicciones: dbpost._id  } });})
           })
           .then(() => {

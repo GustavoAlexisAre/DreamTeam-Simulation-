@@ -17,7 +17,6 @@ router.get("/dashboard/userList", onlyAdmin, (req, res, next) => {
     User.find()
     .populate("Predicciones")
         .then(usuarios => {
-            console.log(usuarios.data)
             res.render("admin/userlist", {userInSession: req.session.currentUser, usuario: usuarios})
         })
         .catch(err => {
