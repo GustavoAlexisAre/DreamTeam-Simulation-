@@ -11,7 +11,9 @@
 <header>
 {{#if userInSession}}
   <nav>
-    <img id="logo1" src="/images/logo.png" alt="logo" >
+   <a href="/">
+  <img id="logo1" src="/images/logo.png" alt="logo"  >
+   </a> 
     <div id="profileNavButtons">
     <a href="/admin/indexAdmin"><button>Inicio</button></a>
     <button type="button">
@@ -31,7 +33,7 @@
   <br><p>Still no logged in user, sorry!</p>
  
 {{/if}}
-    <div class="profile-section">
+    <div class="profile-section" style="margin-left:680px;">
       {{#with userInSession}}
       <h1>Perfil de Usuario</h1>
     <img src="{{foto}}" alt="Foto de perfil">

@@ -14,14 +14,15 @@
 {{#if userInSession}}
 <header>
  <nav>
-  <img id="logo1" src="/images/logo.png" alt="logo" >
-         
+  <a href="/">
+  <img id="logo1" src="/images/logo.png" alt="logo"  >
+   </a>      
   <div class="NavpredictionButtons">
-  <button type="submit"> 
+  <button type="button"> 
      <a href="/">Inicio</a>
      </button>
   
-    <button type="submit">
+    <button type="button">
               <a href="/user/userProfile">Perfil</a>
      </button>
     <button type="button">
@@ -34,8 +35,8 @@
       <h2>Predicciones</h2>
     <div class="predictions">
      {{#each fixture}}
-     <div class="fixture-box">
-     <div class="fixture-p card">
+     <div class="fixture-box" >
+     <div class="fixture-p card" >
           <p>{{formatoFecha fixture.date}} </p>
           <p><img src={{teams.home.logo}} alt="logo equipo"/>{{teams.home.name}} {{goals.home}}-{{goals.away}} {{teams.away.name}}<img src={{teams.away.logo}} alt="logo equipo"/></p>
          

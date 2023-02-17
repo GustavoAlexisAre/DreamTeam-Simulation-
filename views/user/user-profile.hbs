@@ -11,8 +11,10 @@
 <header>
 {{#if userInSession}}
   <nav>
-    <img id="logo1" src="/images/logo.png" alt="logo" >
-    <div id="profileNavButtons">
+    <a href="/">
+  <img id="logo1" src="/images/logo.png" alt="logo"  >
+   </a> 
+    <div id="profileNavButtons" style="margin-left: 1180px;">
     <a href="/"><button>Inicio</button></a>
     <button type="button">
               <a href="/user/userPrediction">Predicciones</a>
@@ -24,14 +26,15 @@
      </div>
   </nav>
   </header>
-<h2>Bienvenido, {{ userInSession.username }}!</h2>
+ 
+<h2 style="margin-right: 1300px;">Bienvenido, {{ userInSession.username }}! </h2>
 {{else}}
 
   
-  <br><p>Still no logged in user, sorry!</p>
+  <br><p>Lo lamento, no te encuentras conectado</p>
  
 {{/if}}
-<div class="profileGeneral">
+<div  class="profileGeneral">
     <div class="profile-section">
       {{#with userInSession}}
       <h1>Perfil de Usuario</h1>
@@ -44,24 +47,29 @@
     <p>Rol: {{role}}</p>
     
     {{/with}}
-    <p style="background-color: black;">Puntos Acomulados: {{puntos}}</p>
+    <p style="background-color: black; border-radius:20px">Puntos Acomulados: {{puntos}}</p>
     </div>
+
     
-   <div class="prediccionProfile">
-  <h1>Predicciones</h1>  
-<div class="prediccion card">
-  {{#each prediccion}}   
+   <div class="prediccionProfile" style="overflow-y: scroll;">
+  
+ <h2>Predicciones</h2>
+  {{#each prediccion}}  
+   
+  <div class="prediccion-p card" style="border: 2px solid white; border-radius:40px">
 <p style="display: flex; align-items: center; justify-content: center;">
   <img src={{homeTeamLogo}} alt="logo equipo"/>
   <span style="margin: 0 10px;">{{homeTeam}} {{homeScore}}-{{awayScore}} {{awayTeam}}</span>
   <img src={{awayTeamLogo}} alt="logo equipo"/>
   <p style="color: solid black;"> Resultado Real: {{realHomeScore}}-{{realAwayScore}}</p>
   <p>{{league}}</p>
-     <p>Fecha Creacion: {{createdAt}}</p>
+     <p>Fecha Creacion: {{formatoFecha createdAt}}</p>
+  </div>
+  <br>
   {{/each}}
   </p>   
  
-</div>
+
 </div>
  </div>
 

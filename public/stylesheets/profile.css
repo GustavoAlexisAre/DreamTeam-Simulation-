@@ -79,12 +79,11 @@ header {
     max-height: auto;
     margin: 0 auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Bakbak One', cursive;
     text-align: center;
     color: white;
     background-color: transparent;
     background-color: #064789;
-    font-family: 'Wallpoet', cursive;
+    font-family: 'Source Code Pro', monospace;
     align-items: center;
     margin-right: 70px;
   }
@@ -144,12 +143,6 @@ header {
     font-family: 'Tourney', cursive;
   }
 
-  .prediccion card{
-    padding: 25px;
-    margin-bottom: 15px;
-    border: 2px solid white;
-    
-  }
 
   .prediccionProfile p:first-of-type {
     font-size: 16px;

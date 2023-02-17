@@ -56,7 +56,9 @@
   }
   
   .NavpredictionButtons{
-    margin-left: 1200px;
+    margin-left: 1220px;
+    display: flex;
+    align-items: center;
   }
 
   h2{
