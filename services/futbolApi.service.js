@@ -6,8 +6,8 @@ const axios = require("axios");
     url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
     params: {league: '2', season: '2022', from: '2023-02-13', to: '2023-02-23'},
     headers: {
-      'X-RapidAPI-Key': process.env.XRapidAPIKey ,
-      'X-RapidAPI-Host':  process.env.XRapidAPIHost
+      'X-RapidAPI-Key': '6f605d22abmshb359d7b0d088614p103d73jsna8a1241fd0a1',
+      'X-RapidAPI-Host':  'api-football-v1.p.rapidapi.com'
     }
   };
 
@@ -30,8 +30,8 @@ const axios = require("axios");
     url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
     params: {id},
     headers: {
-      'X-RapidAPI-Key': process.env.XRapidAPIKey,
-      'X-RapidAPI-Host':  process.env.XRapidAPIHost
+      'X-RapidAPI-Key': '6f605d22abmshb359d7b0d088614p103d73jsna8a1241fd0a1',
+      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
             }
   }
   return axios.request(options)
