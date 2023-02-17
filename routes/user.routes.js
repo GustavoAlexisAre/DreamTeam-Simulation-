@@ -9,21 +9,25 @@ router.get('/userProfile',(req, res) => {
   User.findById(req.session.currentUser._id)
   .populate("Predicciones")
   .then(prediccionUser => {
-
     let puntosUser = 0 
-    // if (awayScore === realAwayScore && homeScore === realAwayScore){
-    //   puntosUser += 6
-    // }
-    // else if (homeScore > awayScore && realHomeScore > realAwayScore){
-    //   puntosUser += 3
-    // }
-    // else if (homeScore < awayScore && realHomeScore < realAwayScore){
-    //   puntosUser += 3
-    // }
-    // else if (homeScore === awayScore && realHomeScore === realAwayScore){
-    //   puntosUser += 3
-    // }
-
+for(i=0;i<prediccionUser.Predicciones.length; i++){
+   
+    if(prediccionUser.Predicciones[i].realAwayScore === null && prediccionUser.Predicciones[i].realHomeScore === null){
+      continue
+    }
+    else if (prediccionUser.Predicciones[i].awayScore === prediccionUser.Predicciones[i].realAwayScore && prediccionUser.Predicciones[i].homeScore === prediccionUser.Predicciones[i].realHomeScore){
+      puntosUser += 6
+    }
+    else if (prediccionUser.Predicciones[i].homeScore > prediccionUser.Predicciones[i].awayScore && prediccionUser.Predicciones[i].realHomeScore > prediccionUser.Predicciones[i].realAwayScore){
+      puntosUser += 3
+    }
+    else if (prediccionUser.Predicciones[i].homeScore < prediccionUser.Predicciones[i].awayScore && prediccionUser.Predicciones[i].realHomeScore < prediccionUser.Predicciones[i].realAwayScore){
+      puntosUser += 3
+    }
+    else if (prediccionUser.Predicciones[i].homeScore === prediccionUser.Predicciones[i].awayScore && prediccionUser.Predicciones[i].realHomeScore === prediccionUser.Predicciones[i].realAwayScore){
+      puntosUser += 3
+    }
+  }
     res.render('user/user-profile',{ 
       userInSession: req.session.currentUser, 
       prediccion: prediccionUser.Predicciones,
@@ -92,7 +96,7 @@ router.post("/user-prediction/:fixtureId", (req, res) => {
             return User.findByIdAndUpdate(req.session.currentUser._id, { $push: { Predicciones: dbpost._id  } });})
           })
           .then(() => {
-            res.redirect("/user/userPrediction")
+            res.redirect("/user/userProfile")
           })
 
       

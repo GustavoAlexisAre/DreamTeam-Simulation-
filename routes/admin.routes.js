@@ -42,17 +42,18 @@ router.post("/dashboard/userList/edit/:id", onlyAdmin, (req, res, next) => {
 })
 
 
-router.post("/dashboard/userList/delete/:id", onlyAdmin, (req, res, next) => {
-    const { id } = req.params
+    router.get("/dashboard/userList/delete/:id", onlyAdmin, (req, res, next) => {
+        const { id } = req.params
+    
+        User.findByIdAndDelete(id)
+            .then(() => {
+                res.redirect("/admin/dashboard/userList")
+            })
+            .catch(err => {
+                next(err)
+            })
+    })
 
-    User.findByIdAndDelete(id)
-        .then(() => {
-            res.redirect("/admin/dashboard/userList")
-        })
-        .catch(err => {
-            next(err)
-        })
-})
 
 
 module.exports = router
