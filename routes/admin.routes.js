@@ -27,10 +27,32 @@ router.get("/dashboard/userList/edit/:id", onlyAdmin, async (req, res, next) => 
     try {
         const { id } = req.params
         const datos = await User.findById(id)
-        res.render("admin/editUsers", { layout: false, userInSession: req.session.currentUser, datos })
+        res.render("admin/editUsers", {userInSession: req.session.currentUser, datos })
     } catch (err) {
         next(err)
     }
 })
+
+router.post("/dashboard/userList/edit/:id", onlyAdmin, (req, res, next) => {
+    const { id } = req.params
+    User.findByIdAndUpdate(id, req.body, { new: true })
+        .then((userActualizado) => {
+            res.redirect(`/admin/dashboard/userList`)
+        }).catch(err => next(err))
+})
+
+
+router.post("/dashboard/userList/delete/:id", onlyAdmin, (req, res, next) => {
+    const { id } = req.params
+
+    User.findByIdAndDelete(id)
+        .then(() => {
+            res.redirect("/admin/dashboard/userList")
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+
 
 module.exports = router

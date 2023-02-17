@@ -1,24 +1,20 @@
- <form action="/auth/signup" method="POST">
+ <form action="/admin/dashboard/userList/edit/{{datos._id}}" method="POST">
 
    <label> Nombre
-      <input type="text" name="nombre" placeholder="Escribe tu Nombre" value={{datos.nombre}} />
+      <input type="text" name="nombre"  value={{datos.nombre}} />
     </label>
 
     <label> Usuario
-      <input type="text" name="username" placeholder="Escribe tu Usuario"value={{datos.nomber}} />
+      <input type="text" name="username" value={{datos.username}} />
     </label>
 
     <label> Email
-      <input type="email" name="email" placeholder="Escribe tu E-mail" />
+      <input type="email" name="email" value={{datos.email}}/>
     </label>
 
-    <label> Contraseña
-      <input type="password" name="password" placeholder="Escribe tu Contraseña" />
+     <label> Role
+      <input type="text" name="role"  value={{datos.role}}/>
     </label>
-
-    <div> Pais
-      <select id="paisSelector" name="nacionalidad"></select>
-    </div>
 
     <div> Genero
       <select name="genero" aria-placeholder="Selecciona tu Genero">
@@ -29,9 +25,5 @@
     </div>
 
 
-    <button type="submit">Registrate</button>
-
-
-    
-  
+    <button type="submit">Editar</button>
   </form>
