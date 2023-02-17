@@ -5,7 +5,9 @@ const Predicciones = require("../models/Prediccion.model");
 const User = require("../models/User.model");
 const onlyAdmin = require("../middleware/adminAccess")
 
-
+router.get("/indexAdmin", onlyAdmin, (req, res) => {
+    res.render("admin/indexAdmin" , {userInSession: req.session.currentUser})
+    }) 
 
 router.get("/dashboard", onlyAdmin, (req, res) => {
 res.render("admin/dashboard" , {userInSession: req.session.currentUser})

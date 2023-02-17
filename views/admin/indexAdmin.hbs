@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>KickScore</title>
+  </head>
+  <body>
+    <header>
+      
+      <nav>
+        <img id="logo1" src="/images/logo.png" alt="logo" >
+         
+         <form id="loginForm" action="/auth/login" method="POST">
+  <div>
+    {{#unless userInSession}}
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+    <label> 
+      <input id="emailInputIndex" type="email" name="email" placeholder="Ingresa tu email" required/>
+    </label>
+
+    <label> 
+      <input type="password" name="password" placeholder="*********" required/>
+    </label>
+    
+    <button class="navButtons" type="submit">Ingresar</button>
+  <button type="submit">
+          <a href="/auth/signup" class="navButtons">Registrarse</a>
+  </button>
+   {{/unless}}
+
+   {{#if userInSession}}
+
+   <div id="InSessionIndexButtons">
+        <button type="submit"><a href="/admin/dashboard">Dashboard</a></button>
+        <button type="submit">
+              <a href="/admin/dashboard/userList">Listas de Usuarios</a>
+        </button>
+
+     
+        <button type="submit">
+              <a href="/auth/logout">Desconectarse</a>
+         </button>
+   </div>
+   {{/if}}
+</div>
+  </form>
+        
+      </nav>
+    </header>
+    <main>
+      <section id="welcome">
+        <h2>Bienvenido a KickScore</h2>
+        <p>Únete a una de nuestras ligas y compite con otros aficionados al fútbol para ver quién puede hacer las mejores predicciones. Elige sabiamente y mantente al día con las actuaciones reales de tus equipos y jugadores elegidos. ¡El manager con más puntos al final de la temporada gana!</p>
+      </section>
+      <section id="leagues">
+        <h2>Ligas</h2>
+        <p>Elige una de nuestras ligas:</p>
+        <div id="imgDiv">
+          <img class="images" src="/images/premierLeague3.webp" alt="premierLeague">
+          <img class="images" src="/images/uefa.png" alt="uefa">
+          <img class="images" src="/images/laLiga.png" alt="laLiga">
+          <img class="images" src="/images/SerieA.png" alt="serieA">
+          <img class="images" src="/images/bundesliga.png" alt="bundesliga">
+        </div>
+      </section>
+      <section id="rules">
+        <h2>Reglas</h2>
+        <p>Estas son las reglas para nuestras ligas de KickScore:</p>
+        <ol id="ol">
+          <li>Cada manager predice los resultados de partidos de fútbol reales dentro de un presupuesto.</li>
+          <li>Se otorgan puntos en función de la precisión de las predicciones.</li>
+          <li>El manager con más puntos al final de la temporada gana la liga.</li>
+        </ol>
+      </section>
+      <section id="contact">
+        <h2>Contacto</h2>
+        <p>Si tienes alguna pregunta, envíanos un correo electrónico a <a href="mailto:support@kickscore.com">support@kickscore.com</a>.</p>
+</section>
+</main>
+<footer>
+<p>© 2023 KickScore</p>
+</footer>
+  </body>
+</html>
