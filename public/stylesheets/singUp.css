@@ -1,16 +1,19 @@
+
+
+
 #form {
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px;
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Bakbak One', cursive;
+    font-family: 'Tourney', cursive;
     text-align: center;
     color: white;
-    background-color: transparent;
+    background-color: #064789;
     margin-top: 6%;
-    margin-right: 1300px;
+    margin-right: 1100px;
     
   }
   
