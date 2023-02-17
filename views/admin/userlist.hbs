@@ -1,6 +1,22 @@
-HOLA LISTA 
-{{#each usuario}}
-      <h1>Perfil de Usuario</h1>
+ 
+<header>
+<nav>
+    <img id="logo1" src="/images/logo.png" alt="logo" >
+    <div id="profileNavButtons">
+    <a href="/"><button>Inicio</button></a>
+    <a href="/admin/dashboard"><button>Dashboard</button></a>
+
+     
+    <button type="button">
+              <a href="/auth/logout">Desconectarse</a>
+     </button>
+     </div>
+ 
+  </nav>
+  </header>
+<div class="user-list">
+  {{#each usuario}}
+  <div class="user-card">
     <img src="{{foto}}" alt="Foto de perfil">
     <p>Nombre: {{nombre}}</p>
     <p>Nombre de usuario: {{username}}</p>
@@ -8,9 +24,16 @@ HOLA LISTA
     <p>Género: {{genero}}</p>
     <p>Nacionalidad: {{nacionalidad}}</p>
     <p>Rol: {{role}}</p>
-    </div>
-    <a href="/admin/dashboard/userList/edit/{{_id}}"><button>Editar</button></a>
-     <a href="/admin/dashboard/userList/delete/{{_id}}"><button>Eliminar</button></a>
-    {{/each}}
+    <a href="/admin/dashboard/userList/edit/{{_id}}">
+      <button>Editar</button>
+    </a>
+    <a href="/admin/dashboard/userList/delete/{{_id}}">
+      <button>Eliminar</button>
+    </a>
+  </div>
+  {{/each}}
+</div>
 
-    <a href="/admin/dashboard"><button>Dashboard</button></a>
+
+<link rel="stylesheet" href="/stylesheets/userList.css">
+<link rel="stylesheet" href="/stylesheets/profile.css">

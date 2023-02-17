@@ -65,7 +65,7 @@ header {
     background-color: transparent;
     background-color: #064789;
     font-family: 'Wallpoet', cursive;
-    margin-left: 100px;
+    margin-left: 30px;
   }
   .profileGeneral{
     display: flex;
@@ -86,6 +86,7 @@ header {
     background-color: #064789;
     font-family: 'Wallpoet', cursive;
     align-items: center;
+    margin-right: 70px;
   }
 
   .prediccionProfile img {

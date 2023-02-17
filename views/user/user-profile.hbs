@@ -44,7 +44,7 @@
     <p>Rol: {{role}}</p>
     
     {{/with}}
-    <p>Puntos Acomulaods: {{puntos}}</p>
+    <p style="background-color: black;">Puntos Acomulados: {{puntos}}</p>
     </div>
     
    <div class="prediccionProfile">
@@ -55,6 +55,7 @@
   <img src={{homeTeamLogo}} alt="logo equipo"/>
   <span style="margin: 0 10px;">{{homeTeam}} {{homeScore}}-{{awayScore}} {{awayTeam}}</span>
   <img src={{awayTeamLogo}} alt="logo equipo"/>
+  <p style="color: solid black;"> Resultado Real: {{realHomeScore}}-{{realAwayScore}}</p>
   <p>{{league}}</p>
      <p>Fecha Creacion: {{createdAt}}</p>
   {{/each}}
