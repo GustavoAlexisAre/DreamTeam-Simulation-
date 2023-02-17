@@ -59,9 +59,9 @@ router.post("/signup", isLoggedOut, (req, res) => {
   // Create a new user - start by hashing the password
 
 let opcionesFoto = {
-  hombre:"https://cdn4.iconfinder.com/data/icons/diversity-v2-0-volume-03/64/footballer-soccer-aguero-argentina-mancity-512.png",
-  mujer:"https://cdn0.iconfinder.com/data/icons/female-sport-3/128/football-soccer-women-player-sporty-512.png",
-  otro:""
+  hombre:"https://cdn4.iconfinder.com/data/icons/white-sportsman/512/sport_avatar_man_boy-01-512.png",
+  mujer:"https://cdn4.iconfinder.com/data/icons/asia-sportswoman/512/sport_avatar_woman_girl_-01-512.png",
+  otro:"https://www.sociedadcoral.es/cms/wp-content/uploads/avatar.png"
 }
 
 let foto = opcionesFoto[genero]

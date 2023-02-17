@@ -27,14 +27,13 @@
   </nav>
   </header>
  
-<h2 style="margin-right: 1300px;">Bienvenido, {{ userInSession.username }}! </h2>
 {{else}}
 
   
   <br><p>Lo lamento, no te encuentras conectado</p>
  
 {{/if}}
-<div  class="profileGeneral">
+<div  class="profileGeneral" style="margin-top: 50px;">
     <div class="profile-section">
       {{#with userInSession}}
       <h1>Perfil de Usuario</h1>
@@ -47,7 +46,7 @@
     <p>Rol: {{role}}</p>
     
     {{/with}}
-    <p style="background-color: black; border-radius:20px">Puntos Acomulados: {{puntos}}</p>
+    <p style="background-color: black; border-radius:20px">Puntos Acomulados: <span style=" font-family: 'Tourney', cursive;">{{puntos}}</span> </p>
     </div>
 
     
@@ -58,12 +57,13 @@
    
   <div class="prediccion-p card" style="border: 2px solid white; border-radius:40px">
 <p style="display: flex; align-items: center; justify-content: center;">
+  
   <img src={{homeTeamLogo}} alt="logo equipo"/>
   <span style="margin: 0 10px;">{{homeTeam}} {{homeScore}}-{{awayScore}} {{awayTeam}}</span>
   <img src={{awayTeamLogo}} alt="logo equipo"/>
-  <p style="color: solid black;"> Resultado Real: {{realHomeScore}}-{{realAwayScore}}</p>
-  <p>{{league}}</p>
-     <p>Fecha Creacion: {{formatoFecha createdAt}}</p>
+  <p>Fecha Creacion: {{formatoFecha createdAt}}</p> 
+  <p>{{league}} 2022-2023</p>
+     <p> </p> <p style="color: solid black;"> Resultado Real: {{realHomeScore}}-{{realAwayScore}}</p>
   </div>
   <br>
   {{/each}}
